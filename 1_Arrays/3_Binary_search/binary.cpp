@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int binary_search(int arr[], int n, int key)
+{
+
+    // impliment binary search
+
+    int s = 0;
+    int e = n - 1;
+
+    while (s <= e)
+    {
+        int mid = (s + e) / 2;
+
+        if (arr[mid] == key)
+        {
+            return mid;
+        }
+        else if (arr[mid] > key)
+        {
+            e = mid - 1;
+        }
+        else
+        {
+            s = mid + 1;
+        }
+    }
+    return -1;
+}
+
+int main()
+{
+
+    int arr[] = {2, 4, 7, 32, 34, 57, 63, 71};
+    int n = sizeof(arr) / sizeof(int);
+    int key;
+    cout << "please Enter the key: " << endl;
+    cin >> key;
+
+    int index = binary_search(arr, n, key);
+
+    if (index != -1)
+    {
+
+        cout << key << " is present at index " << index << endl;
+    }
+    else
+    {
+        cout << key << " is not present in array" << endl;
+    }
+    return 0;
+}
